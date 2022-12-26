@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 import { ActivatedRoute, Data, Route } from '@angular/router';
 import { Todo } from '../shared/interfaces/todo';
 
@@ -9,6 +10,8 @@ import { Todo } from '../shared/interfaces/todo';
 })
 export class TodoComponent implements OnInit {
   @Input() todo: Todo
+  @Output() onCompetedChanged = new EventEmitter<Todo>()
+
 
 
   constructor(private route: ActivatedRoute){}
@@ -22,9 +25,8 @@ export class TodoComponent implements OnInit {
     // )
   }
 
-  handleCheckboxValue(isCompleted): string {
-    return JSON.stringify(isCompleted);
-
+  onCompetedChangedHandler(ev: MatCheckboxChange) {
+    this.onCompetedChanged.emit(this.todo)
   }
 
 }

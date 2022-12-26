@@ -2,6 +2,6 @@
   <mat-card-title>Todo #{{ todo.id }}</mat-card-title>
   <mat-card-content>      {{ todo.title }}      </mat-card-content>
   <mat-card-footer>
-    <mat-checkbox [value]="handleCheckboxValue(todo.completed)">Mark as completed</mat-checkbox>
+    <mat-checkbox (change)="onCompetedChangedHandler($event)">Mark as completed</mat-checkbox>
   </mat-card-footer>
 </mat-card>
