@@ -9,7 +9,7 @@ import { TodoComponent } from './todo/todo.component';
 import { TodosComponent } from './todos/todos.component';
 
 const appRoutes: Routes = [
-  {path: '',redirectTo: 'login', pathMatch: 'full'},
+  {path: '',redirectTo: 'home', pathMatch: 'full', canActivate: [IsLoggedInGuard]},
   {path: 'todos', component: TodosComponent, canActivate: [AuthGuard]},
   {path: 'add-todo', component: AddTodoComponent, canActivate: [AuthGuard]},
   {path: 'todo/:id', component: TodoComponent, resolve:{
