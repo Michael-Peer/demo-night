@@ -14,12 +14,19 @@ export class IsLoggedInGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
     const user = this.storageService.getFromStorage('user');
-    if(user) {
+
+
+    if(user?.id) {
+      console.log('user', user);
+
       this.authService.setUser(user, false);
       this.router.navigate(['todos']);
       return false;
     }
+    console.log('user ekse', user);
+
     return true;
   }
 }
