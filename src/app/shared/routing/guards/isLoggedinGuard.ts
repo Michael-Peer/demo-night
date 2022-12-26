@@ -17,7 +17,7 @@ export class IsLoggedInGuard implements CanActivate {
     const user = this.storageService.getFromStorage('user');
     if(user) {
       this.authService.setUser(user, false);
-      this.router.navigate(['/todos']);
+      this.router.navigate(['todos']);
       return false;
     }
     return true;
