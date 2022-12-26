@@ -33,7 +33,6 @@ export class TodosComponent implements OnInit {
   onNewTodoAdded(todo: Todo) {
     this.config.addNewTodo(todo)
     this.config.getTodos(this.selectedSizeValue, this.shouldHideCompleted).subscribe((data) => {
-        console.log('G', data);
 
       this.todos = data;
       this._snackBar.open('Todo added successfully', 'Close', { duration: 2000 })
