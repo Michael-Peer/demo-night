@@ -14,7 +14,7 @@ import { Todo } from '../shared/interfaces/todo';
 export class TodosComponent implements OnInit {
   todos: Todo[] = []
   shouldHideCompleted: boolean
-  selectedSizeValue: number = 20
+  selectedSizeValue: number = 100
 
 
 
@@ -32,7 +32,12 @@ export class TodosComponent implements OnInit {
 
   onNewTodoAdded(todo: Todo) {
     this.config.addNewTodo(todo)
-    this._snackBar.open('Todo added successfully', 'Close', { duration: 2000 })
+    this.config.getTodos(this.selectedSizeValue, this.shouldHideCompleted).subscribe((data) => {
+        console.log('G', data);
+
+      this.todos = data;
+      this._snackBar.open('Todo added successfully', 'Close', { duration: 2000 })
+    })
   }
 
   onChangeSelect(val: number) {

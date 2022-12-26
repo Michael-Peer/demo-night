@@ -23,9 +23,6 @@ export class ConfigService {
   getTodos(limit?: number, shouldHideCompleted : boolean = false): Observable<Todo[]> {
     const todos = this.storageService.getFromStorage('todos')
     if(todos.length) {
-
-
-
       return new Observable((observer) => {
         observer.next(this.handleFilter(todos, shouldHideCompleted, limit))
       })
