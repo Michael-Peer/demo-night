@@ -34,6 +34,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { IsLoggedInGuard } from './shared/routing/guards/isLoggedinGuard';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
