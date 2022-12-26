@@ -9,14 +9,14 @@ import { TodoComponent } from './todo/todo.component';
 import { TodosComponent } from './todos/todos.component';
 
 const appRoutes: Routes = [
-  {path: '',redirectTo: 'home', pathMatch: 'full', canActivate: [IsLoggedInGuard]},
+  {path: '',redirectTo: 'login', pathMatch: 'full'},
   {path: 'todos', component: TodosComponent, canActivate: [AuthGuard]},
   {path: 'add-todo', component: AddTodoComponent, canActivate: [AuthGuard]},
   {path: 'todo/:id', component: TodoComponent, resolve:{
     todo: TodoResolver
   },  canActivate: [AuthGuard]
 },
-  {path: 'login', component: LoginComponent},
+  {path: 'login', component: LoginComponent, canActivate: [IsLoggedInGuard]},
   {path: '**', redirectTo: ''}
 ]
 
