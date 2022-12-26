@@ -8,17 +8,23 @@ import { Todo } from '../shared/interfaces/todo';
   styleUrls: ['./todo.component.scss']
 })
 export class TodoComponent implements OnInit {
-  todo: Todo = Todo.empty()
+  @Input() todo: Todo
+
 
   constructor(private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.route.data.subscribe(
-    (data: Data) => {
+    // this.route.data.subscribe(
+    // (data: Data) => {
 
-      this.todo = data['todo']
-    }
-    )
+    //   this.todo = data['todo']
+    // }
+    // )
+  }
+
+  handleCheckboxValue(isCompleted): string {
+    return JSON.stringify(isCompleted);
+
   }
 
 }

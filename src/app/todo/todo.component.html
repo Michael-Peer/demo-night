@@ -1,3 +1,7 @@
-<li>
-  {{todo.title}}
-</li>
+<mat-card [ngClass]="{'todo-card': true, 'completed': todo.completed, 'incomplete': !todo.completed}"  mat-elevation-z2>
+  <mat-card-title>Todo #{{ todo.id }}</mat-card-title>
+  <mat-card-content>      {{ todo.title }}      </mat-card-content>
+  <mat-card-footer>
+    <mat-checkbox [value]="handleCheckboxValue(todo.completed)">Mark as completed</mat-checkbox>
+  </mat-card-footer>
+</mat-card>

@@ -65,10 +65,7 @@ export class TodosComponent implements OnInit {
     });
   }
 
-  handleCheckboxValue(isCompleted): string {
-    return JSON.stringify(isCompleted);
 
-  }
 
   get userName() { return this.authService.user.username }
 }
